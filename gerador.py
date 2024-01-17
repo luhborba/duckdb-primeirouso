@@ -4,12 +4,9 @@ from random import randint
 
 lista = [['Computador', 2000], ['Celular',1000], ['Monitor',700], ['Teclado', 50], ['Mouse',20], ['HeadSet',100]]
 cliente = []
+   
 
-def gerar_cliente(total_clientes):
-    falso = Faker()
-    
-
-def gerando_dados(total_linhas: int, total_clientes: int):
+def gerando_dados(total_linhas: int, total_clientes: int, nome_arquivo: str):
     falso = Faker()
     data = []
 
@@ -28,10 +25,7 @@ def gerando_dados(total_linhas: int, total_clientes: int):
             falso.random_number(1,40)
         ])
     
-    with open('dados3.csv', 'w', newline='') as file:
+    with open(nome_arquivo, 'w', newline='') as file:
         escrever = csv.writer(file)
         escrever.writerow(['Cliente','Data_Compra','Produto','ValorProduto','Quantidade'])
         escrever.writerows(data)
-
-
-gerando_dados(200, 50)
