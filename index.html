@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Ambiente de Dados (LB)</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Ambiente de Dados (LB)</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Config. Ambiente</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="teste/" class="nav-link">Projeto Teste</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="teste/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#documentacao-da-criacao-de-um-ambiente-de-dados-utilizando-wsl-pyenv-poetry-duckdb-mkdocs" class="nav-link">Documentação da Criação de um Ambiente de Dados utilizando (WSL, Pyenv, Poetry, DuckDB, MKDocs)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1o-primeira-etapa-instalcacao-do-wsl-pyenv-e-poetry" class="nav-link">1º Primeira Etapa: Instalçação do WSL, Pyenv e Poetry</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2o-segunda-etapa-instalacao-do-duckdb" class="nav-link">2º Segunda Etapa: Instalação do DuckDB</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3o-terceira-etapa-instalacao-do-mkdocs" class="nav-link">3º Terceira Etapa: Instalação do MkDocs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="documentacao-da-criacao-de-um-ambiente-de-dados-utilizando-wsl-pyenv-poetry-duckdb-mkdocs">Documentação da Criação de um Ambiente de Dados utilizando (WSL, Pyenv, Poetry, DuckDB, MKDocs)</h1>
+<p><br></p>
+<h2 id="1o-primeira-etapa-instalcacao-do-wsl-pyenv-e-poetry">1º Primeira Etapa: Instalçação do WSL, Pyenv e Poetry</h2>
+<h3 id="guia-de-como-instalar-o-wsl-para-utilizacao-do-pyenv-e-poetry-em-projetos-de-desenvolvimento-eou-dados">Guia de como instalar o WSL para utilização do Pyenv e Poetry em projetos de Desenvolvimento e/ou Dados</h3>
+<hr />
+<p>1.O primeiro passo a ser realizado e fazer a instalação do WSL no seu Windows:
+2. Abra o CMD do seu Windows, pode ser utilizado o atalho <code>Windows + R</code> para abrir a opção de executar e digitar cmd. Com CMD aberto faça</p>
+<pre><code class="language-bash">wsl --install
+wsl --update
+</code></pre>
+<p>Após estas etapas você deve reiniciar o computador, após reiniciar o computador o pronpt de instalação do Ubuntu irá abrir automaticamente para definir nome do usuário do WSL(Ubuntu) E senha.
+Outra forma de instalar é através da Microsoft Store, procurando a distro do seu interesse.</p>
+<hr />
+<p>Agora vamos as instalações das dependências para o pyenv e poentry.</p>
+<p>Primeiro vamos dar um update no Linux.</p>
+<p><code>sudo apt-get update</code></p>
+<p>Após finalização da atualização você vai instalar os pacotes do linux necessários</p>
+<pre><code class="language-bash">sudo apt install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev \
+libncurses5-dev libbz2-dev liblzma-dev \
+libsqlite3-dev libffi-dev tcl-dev linux-headers-generic libgdbm-dev \
+libreadline-dev tk tk-dev
+</code></pre>
+<p>Após finalização da depedências, você deve clonar o pyenv</p>
+<pre><code>curl https://pyenv.run | bash 
+</code></pre>
+<p>Agora vamos configurar o pyenv para carregar automaticamente no terminal</p>
+<pre><code>echo 'export PYENV_ROOT=&quot;$HOME/.pyenv&quot;' &gt;&gt; ~/.bashrc
+echo 'command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;' &gt;&gt; ~/.bashrc
+echo 'eval &quot;$(pyenv init -)&quot;' &gt;&gt; ~/.bashrc****
+</code></pre>
+<p>E utilizar o <code>exec "$SHELL"</code> para reiniciar o Shell, para atualizar as ultimas configurações</p>
+<hr />
+<p>Agora é propriamente a etapa de configuração do pyenv:<br><br>
+-Você pode utilizar o comando <code>pyenv versions</code> para verificar todas as versões de python instaladas;<br>
+-Você pode utilizar o comando <code>pyenv install -l</code> para listar todas as versões que estão disponíveis para instalação;<br>
+-Você pode utilizar o comando <code>pyenv install X.X</code> para instalar a versão desejado (X.X seria a versão desejada. Ex: 3.11.7);<br>
+-Você pode utilizar o comando <code>pyenv global X.X</code> para definir a versão desejada como global;<br>
+-Você pode utilizar o comando <code>pyenv local X.X</code> para definir a versão desejada como local;<br></p>
+<hr />
+<p>Agora vamos instalar o pyenv:</p>
+<ol>
+<li>Você deve rodar o comando <code>pyenv local X.X</code></li>
+<li>Para iniciar um projeto utilizando o poetry você pode usar o comando <code>poetry new projeto</code>, sendo projeto o nome que você deseja colocar</li>
+<li>Você pode acessar a pasta do seu projeto <code>cd projeto</code>, para após rodar o comando <code>code .</code> assim você vai instalar um pacote que fara a conexão do <em>Visual Studio Code</em> com seu WSL, para isso você deve ter o <em>Visual Studio Code</em> instalado no seu Windows, como também a extenção <em>WSL</em>.</li>
+<li>Posteriormente você pode utilizar o comando <code>poetry config virtualenvs.in-project true</code>, você está dizendo para o poetry que a pasta do ambiente virtual ficará dentro da pasta do projeto.</li>
+<li>Finalmente você pode utilizar o <code>poetry shell</code> para iniciar o ambiente virtual.</li>
+<li>Com isso você está pronto para começar o seu projeto.</li>
+</ol>
+<hr />
+<h3 id="espero-que-tenha-ajudado">Espero que tenha ajudado</h3>
+<p>Para construir esse passo-a-passo segui os seguintes sites:<br>
+- <a href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a><br>
+- <a href="https://python-poetry.org/">https://github.com/pyenv/pyenv</a></p>
+<p>Fiz também um vídeo mostrando o lado prático deste no Youtube:
+<a href="https://www.youtube.com/watch?v=qCD3MBE6xoo">Assista e esse vídeo</a></p>
+<hr />
+<h2 id="2o-segunda-etapa-instalacao-do-duckdb">2º Segunda Etapa: Instalação do DuckDB</h2>
+<p>Para está etapa vou compartilhar um repositório do Kaio Silva, que está explicando de forma simples e sensacional o passo-a-passo de isntalação:<br>
+<a href="https://github.com/kaiohp/duckdb-on-linux">https://github.com/kaiohp/duckdb-on-linux</a></p>
+<hr />
+<h2 id="3o-terceira-etapa-instalacao-do-mkdocs">3º Terceira Etapa: Instalação do MkDocs</h2>
+<p><BR></p>
+<h3 id="-instalando-o-mkdocs">-Instalando o MkDocs</h3>
+<p>Para instalar o MkDocs é bem simples basta você rodar o seguinte comando:</p>
+<pre><code>poetry add mkdocs --dev
+</code></pre>
+<h3 id="-configurando">-Configurando</h3>
+<p><BR>
+Basicamente você vai criar uma documentação em MarkDown, para documentar todo seu projeto:<br>
+<a href="https://www.markdownguide.org/">Aqui está a Documentação</a></p>
+<p>Para iniciar o uso do MkDocs, você deve rodar o comando</p>
+<pre><code>poetry run mkdocs new .
+</code></pre>
+<p>Basicamente ele vai criar uma estrutura de arquivos na pasta do seu projeto</p>
+<h4 id="project-layout">Project layout</h4>
+<pre><code>mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+</code></pre>
+<p>No arquivo mkdocs.yml é a pesonalização da configuração do site(MkDocs) e na pasta <code>docs</code> você vai configurar as páginas.</p>
+<p>Assim você pode executar localmente a visualização da sua documentação <code>poetry run mkdocs serve</code>
+Quando você construir da maneira que deseja, utilize o comando <code>poetry run mkdocs build</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.5.3
+Build Date UTC : 2024-01-18 17:00:02.043422+00:00
+-->
