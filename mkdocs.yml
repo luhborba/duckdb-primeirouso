@@ -1,0 +1,4 @@
+site_name: Ambiente de Dados (LB)
+nav:
+  - Config. Ambiente: index.md
+  - Projeto Teste: teste.md
