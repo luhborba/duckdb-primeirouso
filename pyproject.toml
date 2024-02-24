@@ -6,12 +6,15 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.11.7"
 pandas = "^2.1.4"
 faker = "^22.2.0"
 duckdb = "^0.10.0"
 pyarrow = "^15.0.0"
 fastparquet = "^2024.2.0"
+tqdm = "^4.66.2"
+taskipy = "^1.12.2"
+polars = "^0.20.10"
 
 
 [tool.poetry.group.dev.dependencies]

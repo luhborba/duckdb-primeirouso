@@ -23,13 +23,13 @@ total_vendas_cliente = total_vendas_cliente.rename(columns={'ValorTotal': 'Total
 total_vendas_cliente = total_vendas_cliente.sort_values(by='TotalVendas', ascending=False)
 
 # Salvando DF em CSV
-df.to_csv('data/csv/dados.csv', index=False)
+df.to_csv('data/csv/dados-pandas.csv', index=False)
 
 # Salvando DF de Total De Vendas por Produto
-total_vendas_produtos.to_csv('data/csv/total_vendas_produtos.csv', index=False)
+total_vendas_produtos.to_csv('data/csv/total_vendas_produtos-pandas.csv', index=False)
 
 # Salvando DF de Total De Vendas por Cliente
-total_vendas_cliente.to_csv('data/csv/total_vendas_cliente.csv', index=False)
+total_vendas_cliente.to_csv('data/csv/total_vendas_cliente-pandas.csv', index=False)
 
 # Registrando o tempo de término
 fim = time.time()
