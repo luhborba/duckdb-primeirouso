@@ -45,8 +45,8 @@ poetry install
 poetry run mkdocs serve
 ```
 
-6. Gerando dados
-Para gerar dados você pode acessar o arquivo gerar e definir os parametros que deseja, os parametros são: Quantidade de Linhas, Quantidade de Clientes e nome do arquivo (que por padrão é dados.csv, caso você mude deve mudar também nós arquivos de teste).
+6. Gerando dados:
+>Para gerar dados você pode acessar o arquivo gerar e definir os parametros que deseja, os parametros são: Quantidade de Linhas, Quantidade de Clientes e nome do arquivo (que por padrão é dados.csv, caso você mude deve mudar também nós arquivos de teste).
 
 ```bash
 python gerar.py
