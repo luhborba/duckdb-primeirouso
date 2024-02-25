@@ -15,14 +15,14 @@ con.execute("CREATE TABLE dados AS SELECT * FROM read_csv('dados.csv');")
 con.execute("ALTER TABLE dados ADD COLUMN ValorTotal DECIMAL(10,2)")
 con.execute("UPDATE dados SET ValorTotal = ValorProduto * Quantidade")
 
-# Salvando dados-duck.csv
-con.execute("COPY (SELECT * FROM dados) TO 'data/csv/dados-duck.csv'")
+# Salvando dados-duck.parquet
+con.execute("COPY (SELECT * FROM dados) TO 'data/parquet/dados-duck.parquet' (FORMAT PARQUET)")
 
-# Salvando total_vendas_produtos-duck.csv
-con.execute("COPY (SELECT Produto, SUM(ValorTotal) AS TotalVendas FROM dados GROUP BY Produto ORDER BY TotalVendas DESC) TO 'data/csv/total_vendas_produtos-duck.csv'")
+# Salvando total_vendas_produtos-duck.parquet
+con.execute("COPY (SELECT Produto, SUM(ValorTotal) AS TotalVendas FROM dados GROUP BY Produto ORDER BY TotalVendas DESC) TO 'data/parquet/total_vendas_produtos-duck.parquet' (FORMAT PARQUET)")
 
-# Salvando total_vendas_cliente-duck.csv
-con.execute("COPY (SELECT Cliente, SUM(ValorTotal) AS TotalVendas FROM dados GROUP BY Cliente ORDER BY TotalVendas DESC) TO 'data/csv/total_vendas_cliente-duck.csv'")
+# Salvando total_vendas_cliente-duck.parquet
+con.execute("COPY (SELECT Cliente, SUM(ValorTotal) AS TotalVendas FROM dados GROUP BY Cliente ORDER BY TotalVendas DESC) TO 'data/parquet/total_vendas_cliente-duck.parquet' (FORMAT PARQUET)")
 
 # Fechando a conexão com o banco de dados
 con.close()
