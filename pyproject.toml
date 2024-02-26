@@ -25,3 +25,8 @@ mkdocs = "^1.5.3"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+duck = "python ./duckdb/teste01-duck-csv.py && python ./duckdb/teste02-duck-parquet.py"
+gerar = "python gerar.py"
+pandas = "python ./pandas/teste02-pd-csv.py && python ./pandas/teste03-pd-parquet.py"
