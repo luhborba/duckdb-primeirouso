@@ -1,6 +1,7 @@
 import pandas as pd
 import time
 
+print("Iniciando Parquet.....!!!")
 # Registrando o tempo de início
 inicio = time.time()
 

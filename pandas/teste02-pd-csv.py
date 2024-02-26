@@ -3,7 +3,7 @@ import time
 import os
 
 
-print("Iniciando .....!!!")
+print("Iniciando CSV.....!!!")
 # Registrando o tempo de início
 inicio = time.time()
 
