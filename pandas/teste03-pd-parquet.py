@@ -49,4 +49,4 @@ fim = time.time()
 # Calculando o tempo de execução
 tempo_execucao = fim - inicio
 
-print("Tempo de execução: ", tempo_execucao, "segundos")
+print(f"Tempo de execução: {tempo_execucao:.2f} segundos")

@@ -1,6 +1,5 @@
 import duckdb
 import time
-import os
 
 print("Iniciando Parquet .....")
 # Registrando o tempo de início
