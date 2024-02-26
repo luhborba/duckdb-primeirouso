@@ -2,6 +2,8 @@ import pandas as pd
 import time
 import os
 
+
+print('Iniciando .....!!!')
 # Registrando o tempo de início
 inicio = time.time()
 
@@ -36,5 +38,5 @@ fim = time.time()
 
 # Calculando o tempo de execução
 tempo_execucao = fim - inicio
-
+print('Finalizado com Sucesso!!!')
 print(f"Tempo de execução: {tempo_execucao:.2f} segundos")
