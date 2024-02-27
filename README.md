@@ -10,11 +10,11 @@ Para esse projeto o Gestor solicitou que fosse extraido o resultado do total de 
 
 Ao utilizar o pandas para o tratamento de dados o mesmo desempenho todas o pipeline de dados em aproximadamente 1.008 segundos (Cerca de 16 minutos), exportando os dados tanto em csv, como também em parquet. Conforme imagem abaixo:
 
-![Image](/docs/assert/img/pandas.png)
+![Image](/docs/assets/img/pandas.png)
 
 Ao utilizar o DuckDB, para realizar o mesmo pipeline de dados ele levou 584,83 segundos (Menos de 10 minutos). Conforme imagem abaixo:
 
-![Imagem](/docs/assert/img/duckdb.png)
+![Imagem](/docs/assets/img/duckdb.png)
 
 -- **O DuckDB teve uma perfomace 72% melhor do que o Pandas**
 
