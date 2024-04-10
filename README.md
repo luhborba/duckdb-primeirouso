@@ -81,7 +81,7 @@ poetry run task pandas
 
 8. ETL com DuckDB:
 ```bash
-poetry run task pandas
+poetry run task duck
 ```
 
 9. Caso realize o ajuste no código use o código abaixo para refatorar segundo biblioteca `BLACK`:
